@@ -8,7 +8,7 @@ if [ -z "$OAUTH_TOKEN" ]; then
 fi
 
 if [ -z "$API_URL" ]; then
-  echo "URL организации не задан. Установите переменную окружения ORG_URL."
+  echo "URL организации не задан. Установите переменную окружения API_URL."
   exit 1
 fi
 

@@ -2,13 +2,11 @@ version: '3.8'
 
 services:
   github-backup:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: dzarlax/github-backup:latest
     environment:
-      - OAUTH_TOKEN=""
-      - API_URL=""
-      - CRON_SCHEDULE=""
+      - OAUTH_TOKEN=${OAUTH_TOKEN}
+      - ORG_URL=${ORG_URL}
+      - CRON_SCHEDULE=${CRON_SCHEDULE}
     volumes:
       - backup:/backup
     logging:

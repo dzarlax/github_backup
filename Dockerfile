@@ -6,7 +6,7 @@ RUN apk update && \
     apk add --no-cache git curl jq zip bash
 
 # Установка рабочего каталога
-WORKDIR /backup
+WORKDIR /exec
 
 # Копирование скрипта резервного копирования в контейнер
 COPY backup.sh .
@@ -22,4 +22,4 @@ ENV API_URL=""
 ENV CRON_SCHEDULE="0 2 * * *"
 
 # Запуск crond и скрипта через entrypoint
-ENTRYPOINT ["entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "/exec/entrypoint.sh"]

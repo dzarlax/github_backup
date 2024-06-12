@@ -18,7 +18,7 @@ RUN chmod +x backup.sh entrypoint.sh
 # Установка переменных окружения
 ENV BACKUP_PATH=/backup
 ENV OAUTH_TOKEN=""
-ENV ORG_URL=""
+ENV API_URL=""
 ENV CRON_SCHEDULE="0 2 * * *"
 
 # Запуск crond и скрипта через entrypoint

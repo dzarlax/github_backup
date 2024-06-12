@@ -7,13 +7,13 @@ if [ -z "$OAUTH_TOKEN" ]; then
   exit 1
 fi
 
-if [ -z "$ORG_URL" ]; then
+if [ -z "$API_URL" ]; then
   echo "URL организации не задан. Установите переменную окружения ORG_URL."
   exit 1
 fi
 
 # URL API GitHub для организации
-URL_PRIVATE="${ORG_URL}"
+URL_PRIVATE="${API_URL}"
 
 # Количество репозиториев
 COUNT=0

@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - OAUTH_TOKEN=""
-      - ORG_URL=""
+      - API_URL=""
       - CRON_SCHEDULE=""
     volumes:
       - backup:/backup

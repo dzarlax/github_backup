@@ -22,4 +22,4 @@ ENV API_URL=""
 ENV CRON_SCHEDULE="0 2 * * *"
 
 # Запуск crond и скрипта через entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]

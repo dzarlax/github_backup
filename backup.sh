@@ -8,7 +8,7 @@ if [ -z "$OAUTH_TOKEN" ]; then
 fi
 
 if [ -z "$API_URL" ]; then
-  echo "URL организации не задан. Установите переменную окружения API_URL."
+  echo "URL API не задан. Установите переменную окружения API_URL."
   exit 1
 fi
 
@@ -34,8 +34,9 @@ fetch_fromUrl() {
         REPONAME=$(echo ${REPO} | cut -d ',' -f1)
         CLONEURL=$(echo ${REPO} | cut -d ',' -f2)
         REPO_DIR="${BACKUP_DIR}/${REPONAME}"
-        echo "Клонирование ${CLONEURL} в ${REPO_DIR}"
-        git clone --mirror "${CLONEURL}" "${REPO_DIR}"
+        AUTH_CLONEURL="${CLONEURL/https:\/\/github.com/https:\/\/${OAUTH_TOKEN}@github.com}"
+        echo "Клонирование ${AUTH_CLONEURL} в ${REPO_DIR}"
+        git clone --mirror "${AUTH_CLONEURL}" "${REPO_DIR}"
         echo "Сохранено в ${REPO_DIR}"
     done
 }
